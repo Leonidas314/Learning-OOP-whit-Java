@@ -1,0 +1,1 @@
+Objetivo del Ejercicio 3: Refactorizar el codigo del proyecto auction de la practica 4 reemplazando la estructura de datos usada (ArrayList) por un HashMap donde sea necesario
