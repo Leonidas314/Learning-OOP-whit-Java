@@ -5,6 +5,7 @@
  */
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 public class StockManager
 {
     private HashMap<Integer, Product> stockManag;
@@ -56,10 +57,20 @@ public class StockManager
      */
     public void printProductDetails()
     {
-       //TODO complete the implementation 
        for(Map.Entry<Integer,Product> currentProduct : stockManag.entrySet()){
             currentProduct.toString();
        }
     }
 
+    /*
+     * @post Returns an arraylist of productos with less quantity than passed value
+     */
+    public  ArrayList<> stockBelowThan(int value){
+        ArrayList arrayProduct;
+        for(Map.Entry<Integer, Product> currentEntry : stockManag.entrySet()){
+            if((currentEntry.getValue().getQuantity()) < value){
+                arrayProduct.add(currentEntry.getValue());
+            }
+        }
+    }
 }
