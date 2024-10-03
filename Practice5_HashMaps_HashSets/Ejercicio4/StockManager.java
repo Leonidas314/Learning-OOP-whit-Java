@@ -18,11 +18,15 @@ public class StockManager
     }
 
     /**
+     * @pre Id's of the product to add does'n must exist already in stockMAnager
      * @post item are added to stock.
      */
     public void addProduct(Product item)
-    {
-        stockManag.put(item.getID() , item);
+    {   
+        if (!stockManag.containsKey(item.getID())) {
+            stockManag.put(item.getID() , item);            
+        }
+
     }
     
     /**
@@ -63,14 +67,16 @@ public class StockManager
     }
 
     /*
+     * @pre passed value must be under of at leats one quantity of some product in the stock
      * @post Returns an arraylist of productos with less quantity than passed value
      */
-    public  ArrayList<> stockBelowThan(int value){
-        ArrayList arrayProduct;
+    public  ArrayList stockBelowThan(int value){
+        ArrayList arrayProduct= new ArrayList<>();
         for(Map.Entry<Integer, Product> currentEntry : stockManag.entrySet()){
             if((currentEntry.getValue().getQuantity()) < value){
                 arrayProduct.add(currentEntry.getValue());
             }
         }
+        return arrayProduct;
     }
 }
