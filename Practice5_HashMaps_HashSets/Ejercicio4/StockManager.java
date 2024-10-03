@@ -4,6 +4,7 @@
  * 
  */
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.ArrayList;
 public class StockManager
@@ -56,6 +57,25 @@ public class StockManager
         return (stockManag.get(id)).getQuantity();
     }
 
+    /*
+     * @post Returns a HashSet of the finded products by name input
+     */
+    public HashSet findProductByName(String name){
+        HashSet<Product> findedProducts = new HashSet<>();
+        for(Map.Entry<Integer, Product> currentProduct: stockManag.entrySet()){
+            if(name.equals((currentProduct.getValue()).getName())){
+                findedProducts.add(currentProduct.getValue());
+            }
+        }
+        if(findedProducts.size()>0){
+            for(Product findedProd : findedProducts ){
+                findedProd.toString();
+            }
+        }
+        return findedProducts;
+
+    }
+
     /**
      * @post Shows details of al productos in stock
      */
@@ -79,4 +99,5 @@ public class StockManager
         }
         return arrayProduct;
     }
+
 }
