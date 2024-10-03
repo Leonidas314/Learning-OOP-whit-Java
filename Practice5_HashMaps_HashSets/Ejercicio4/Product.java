@@ -1,58 +1,77 @@
 /**
- * Manage the stock in a business.
- * The stock is described by zero or more Products.
- * 
+ * Model some details of a product sold by a company.
  */
-public class StockManager
+public class Product
 {
+    private int id;
+ 
+    private String name;
+ 
+    private int quantity;
+
     /**
-     * @post A StockManager is created.
+     * @post A product is created.
      */
-    public StockManager()
+    public Product(int id, String name)
     {
-        //TODO complete the implementation
+        this.id = id;
+        this.name = name;
+        quantity = 0;
     }
 
     /**
-     * @post item are added to stock.
+     * @post The ID of the product is returned.
      */
-    public void addProduct(Product item)
+    public int getID()
     {
-        //TODO complete the implementation
-    }
-    
-    /**
-     * TODO complete the specification
-     */
-    public void delivery(int id, int amount)
-    {
-           //TODO complete the implementation 
-    }
-    
-    /**
-     * TODO complete the specification
-     */
-    public Product findProduct(int id)
-    {
-        //TODO complete the implementation 
-        return null;
-    }
-    
-    /**
-     * TODO complete the specification
-     */
-    public int numberInStock(int id)
-    {
-        //TODO complete the implementation 
-        return 0;
+        return id;
     }
 
     /**
-     * TODO complete the specification
+     * @post return product's name.
      */
-    public void printProductDetails()
+    public String getName()
     {
-       //TODO complete the implementation 
+        return name;
     }
 
+    /**
+     * @post The quantity of the product in stock is returned.
+     */
+    public int getQuantity()
+    {
+        return quantity;
+    }
+
+    /**
+     * @post A string containing the product's information is returned.
+     */
+    public String toString()
+    {
+        return id + ": " +
+               name +
+               " stock level: " + quantity;
+    }
+
+    /**
+     * @pre amount > 0
+     * @post quantity is updated with quantity + amount value.
+     */
+    public void increaseQuantity(int amount)
+    {
+        
+      quantity += amount;
+        
+    }
+
+    /**
+     * @pre getQuantity() > 0
+     * @post Sell one of these products, i.e., quantity is decreased by 1. 
+     */
+    public void sellOne()
+    {
+        if(quantity > 0) {
+            quantity--;
+        }
+    }
 }

@@ -1,6 +1,6 @@
-public class Main(){
-     public stactic void Main(){
-        
+public class Main{
+     public static void Main(){
+
      }
 
 }

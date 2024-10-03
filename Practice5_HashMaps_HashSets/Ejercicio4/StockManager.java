@@ -3,14 +3,17 @@
  * The stock is described by zero or more Products.
  * 
  */
+import java.util.HashMap;
+import java.util.Map;
 public class StockManager
 {
+    private HashMap<Integer, Product> stockManag;
     /**
      * @post A StockManager is created.
      */
     public StockManager()
     {
-        //TODO complete the implementation
+        HashMap stockManag = new HashMap<>();
     }
 
     /**
@@ -18,41 +21,45 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        //TODO complete the implementation
+        stockManag.put(item.getID() , item);
     }
     
     /**
-     * TODO complete the specification
+     * @post Update the associated product's quantity with id adding the input amount 
      */
     public void delivery(int id, int amount)
     {
-           //TODO complete the implementation 
+        Product productToModified;
+        productToModified=stockManag.get(id);
+        productToModified.increaseQuantity(amount);
+        stockManag.put(id, productToModified);
     }
     
     /**
-     * TODO complete the specification
+     * @post Return the associated product to input id
      */
     public Product findProduct(int id)
     {
-        //TODO complete the implementation 
-        return null;
+        return stockManag.get(id);
     }
     
     /**
-     * TODO complete the specification
+     *@post Return the quantity of products by id
      */
     public int numberInStock(int id)
     {
-        //TODO complete the implementation 
-        return 0;
+        return (stockManag.get(id)).getQuantity();
     }
 
     /**
-     * TODO complete the specification
+     * @post Shows details of al productos in stock
      */
     public void printProductDetails()
     {
        //TODO complete the implementation 
+       for(Map.Entry<Integer,Product> currentProduct : stockManag.entrySet()){
+            currentProduct.toString();
+       }
     }
 
 }
