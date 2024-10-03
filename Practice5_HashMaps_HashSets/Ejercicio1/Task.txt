@@ -1,0 +1,8 @@
+1. Utilizando Maps, defina una clase PhoneBook, que se encargue de crear una agenda de contactos
+telefónicos y operaciones asociadas, tales como:
+• addEntry agrega un contacto conteniendo el nombre del contacto y el número de teléfono aso-
+ciado.
+• changePhone dado un contacto, se encarga de modificar el número de teléfono.
+• delContact borra un contacto de la agenda.
+• getAllContacts Retorna un Set con todos los contactos almacenados en la agenda.
+• lookupNumber dado un contacto, busca y retorna el número de telefono asociado.

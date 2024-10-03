@@ -1,0 +1,20 @@
+4. Utilizando Maps complete los siguientes incisos en el proyecto products:
+4.1 Implementar la clase StockManager encargada de mantener una colección de objetos Product.
+Completar la implementación de los métodos:
+• findProduct Se encarga de buscar en la colección un producto con el ID proporcionado y si
+lo encuentra lo retorna, caso contrario retorna null.
+• numberInStock retorna la cantidad en stock del producto con el ID proporcionado.
+• delivery: se encarga de encontrar el producto con el ID proporcionado y luego llama al
+método increaseQuantity.
+• printProductDetails Itera sobre la colección de productos e imprime por consola el resultado
+de la llamada al método toString de cada producto.
+4.2 Agregue un método en la clase StockManager que retorne la lista de todos los productos con
+niveles de stock por debajo de un número dado (pasado como parámetro).
+4.3 Modifique el método addProduct de manera tal que un nuevo producto no pueda ser agregado
+a la colección de productos con el mismo ID que uno existente.
+4.4 Agregue un método a la clase StockManager con el siguiente perfil:
+public Product f i n d P r o d u c t ( S t r i n g name ) .
+Este método retorna un producto encontrado por su nombre en lugar de su ID.
+Aclaración: dos objetos String, s1 y s2, pueden ser comparados por igualdad con la expresión
+booleana:
+s1 . equals ( s2 )

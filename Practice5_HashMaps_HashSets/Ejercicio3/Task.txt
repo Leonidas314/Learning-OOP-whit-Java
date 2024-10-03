@@ -1,0 +1,6 @@
+3. Refactorice el código del proyecto auction de la práctica 4 para reemplazar la estructura de datos
+usada (listas) por Maps. Tenga en cuenta que no deberı́a ser necesario hacer ningún cambio en las
+interfaces de las clases (especificaciones y perfiles de los constructores y de sus métodos públicos)
+para poder modificar la implementación. Verifique que la nueva implementación preserva el compor-
+tamiento de la versión anterior ejecutando los tests sobre la nueva versión (todos deberı́an pasar sin
+modificaciones).
