@@ -9,25 +9,20 @@ import java.util.Map;
 import java.util.ArrayList;
 public class StockManager
 {
-    private HashMap<Integer, Product> stockManag;
-    /**
-     * @post A StockManager is created.
-     */
-    public StockManager()
-    {
-        HashMap stockManag = new HashMap<>();
-    }
+    //atributo de la clase StockManager
 
-    /**
+    private HashMap<Integer,Product> stockMap;    
+    //Constructor del Objeto Clase StockManager
+    public StockManager(){
+        stockMap = new HashMap<>();
+    }
+    /*
      * @pre Id's of the product to add does'n must exist already in stockMAnager
      * @post item are added to stock.
      */
     public void addProduct(Product item)
     {   
-        if (!stockManag.containsKey(item.getID())) {
-            stockManag.put(item.getID() , item);            
-        }
-
+            stockMap.put(item.getID() , item);            
     }
     
     /**
@@ -36,17 +31,18 @@ public class StockManager
     public void delivery(int id, int amount)
     {
         Product productToModified;
-        productToModified=stockManag.get(id);
+        productToModified=stockMap.get(id);
         productToModified.increaseQuantity(amount);
-        stockManag.put(id, productToModified);
+        stockMap.put(id, productToModified);
     }
     
     /**
      * @post Return the associated product to input id
      */
     public Product findProduct(int id)
-    {
-        return stockManag.get(id);
+    {   
+        System.out.println((stockMap.get(id)).getName());
+        return stockMap.get(id);
     }
     
     /**
@@ -54,7 +50,7 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        return (stockManag.get(id)).getQuantity();
+        return (stockMap.get(id)).getQuantity();
     }
 
     /*
@@ -62,14 +58,14 @@ public class StockManager
      */
     public HashSet findProductByName(String name){
         HashSet<Product> findedProducts = new HashSet<>();
-        for(Map.Entry<Integer, Product> currentProduct: stockManag.entrySet()){
+        for(Map.Entry<Integer, Product> currentProduct: stockMap.entrySet()){
             if(name.equals((currentProduct.getValue()).getName())){
                 findedProducts.add(currentProduct.getValue());
             }
         }
         if(findedProducts.size()>0){
             for(Product findedProd : findedProducts ){
-                findedProd.toString();
+                System.out.println(findedProd.toString()); 
             }
         }
         return findedProducts;
@@ -81,8 +77,8 @@ public class StockManager
      */
     public void printProductDetails()
     {
-       for(Map.Entry<Integer,Product> currentProduct : stockManag.entrySet()){
-            currentProduct.toString();
+       for(Map.Entry<Integer,Product> currentProduct : stockMap.entrySet()){
+            System.out.println(currentProduct.toString()); 
        }
     }
 
@@ -92,7 +88,7 @@ public class StockManager
      */
     public  ArrayList stockBelowThan(int value){
         ArrayList arrayProduct= new ArrayList<>();
-        for(Map.Entry<Integer, Product> currentEntry : stockManag.entrySet()){
+        for(Map.Entry<Integer, Product> currentEntry : stockMap.entrySet()){
             if((currentEntry.getValue().getQuantity()) < value){
                 arrayProduct.add(currentEntry.getValue());
             }
